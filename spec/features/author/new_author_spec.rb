@@ -11,5 +11,14 @@ describe "New author page", type: :feature do
       expect(page).to have_field('author[first_name]')
       expect(page).to have_field('author[last_name]')
       expect(page).to have_field('author[homepage]')
-    end
+   end
+end
+
+describe "New author model", type: :model do 
+   it "should compute name corretcly" do
+      author = Author.new(first_name: "Alan", last_name: "Turing", homepage: "antonykamp.de")
+      expect(author.first_name).to eq("Alan")
+
+      expect(author.name).to eq("Alan Turing")
+     end
 end
