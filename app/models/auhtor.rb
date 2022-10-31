@@ -1,0 +1,2 @@
+class Auhtor < ApplicationRecord
+end
