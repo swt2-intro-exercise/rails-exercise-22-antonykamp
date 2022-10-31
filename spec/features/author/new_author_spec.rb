@@ -12,6 +12,14 @@ describe "New author page", type: :feature do
       expect(page).to have_field('author[last_name]')
       expect(page).to have_field('author[homepage]')
    end
+   it "should fill and save a new author" do
+      visit new_author_path
+      page.fill_in "author[first_name]",	with: "Alan" 
+      page.fill_in "author[last_name]",	with: "Turing" 
+      page.fill_in "author[homepage]",	 with: "http://wikipedia.org/Alan_Turing" 
+      find("input[type='submit']").click
+      expect(Author.find_by(first_name: "Alan").name).to eq("Alan Turing")
+   end
 end
 
 describe "New author model", type: :model do 

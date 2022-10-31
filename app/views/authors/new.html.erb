@@ -2,15 +2,24 @@
   <div>
     <%= form.label :first_name %><br>
     <%= form.text_field :first_name %>
+    <% @author.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
 
   <div>
     <%= form.label :last_name %><br>
     <%= form.text_field :last_name %>
+    <% @author.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
   <div>
     <%= form.label :homepage %><br>
     <%= form.text_field :homepage %>
+    <% @author.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
   </div>
 
   <div>
