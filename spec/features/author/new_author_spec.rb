@@ -20,6 +20,14 @@ describe "New author page", type: :feature do
       find("input[type='submit']").click
       expect(Author.find_by(first_name: "Alan").name).to eq("Alan Turing")
    end
+   it "shoudl show error" do
+      visit new_author_path
+      page.fill_in "author[first_name]",	with: "" 
+      page.fill_in "author[last_name]",	with: "" 
+      page.fill_in "author[homepage]",	 with: "" 
+      find("input[type='submit']").click
+      expect(page).to have_text("Error")
+   end
 end
 
 describe "New author model", type: :model do 
